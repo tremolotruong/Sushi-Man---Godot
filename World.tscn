@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/chef.png" type="Texture" id=2]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fridge_background.png" type="Texture" id=4]
+[ext_resource path="res://wall.tres" type="TileSet" id=5]
+[ext_resource path="res://Tomato.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 53.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 54.625, 58.5625 )
+
+[node name="World" type="Node2D"]
+position = Vector2( 55, 55 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 877.5, 522 )
+scale = Vector2( 2.66113, 1.58398 )
+texture = ExtResource( 4 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+smoothing_enabled = true
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="HitboxArea" type="Area2D" parent="Player"]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Player/HitboxArea"]
+shape = SubResource( 2 )
+
+[node name="Evil_Chilli" parent="." instance=ExtResource( 3 )]
+position = Vector2( 920, -8 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.1, 0.1 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 1, 1 )
+cell_quadrant_size = 1
+format = 1
+tile_data = PoolIntArray( -39257525, 0, 0, 16448070, 0, 0, 73792076, 0, 0, 87362652, 0, 0, 88282265, 0, 0, 88289032, 0, 0, 89138825, 0, 0, 90906067, 0, 0, 91751348, 0, 0, 129497687, 0, 0, 187562589, 0, 0, 188353980, 0, 0, 188355664, 0, 0, 188616963, 0, 0, 188616964, 0, 0, 188616965, 0, 0, 188616966, 0, 0, 188616967, 0, 0, 188616968, 0, 0, 188616969, 0, 0, 188616970, 0, 0, 188616971, 0, 0, 188616972, 0, 0, 188616973, 0, 0, 188616974, 0, 0, 188616975, 0, 0, 189077386, 0, 0, 189205119, 0, 0, 189398405, 0, 0, 189333699, 0, 0, 189471416, 0, 0, 189472247, 0, 0, 189662203, 0, 0, 189663048, 0, 0, 189800757, 0, 0, 190194793, 0, 0, 190196420, 0, 0, 190916491, 0, 0, 192032231, 0, 0, 245627509, 0, 0, 303692447, 0, 0, 361822929, 0, 0, 376245133, 0, 0, 376245920, 0, 0, 376246756, 0, 0, 376247606, 0, 0, 376372313, 0, 0, 376569497, 0, 0, 376504777, 0, 0, 376505601, 0, 0, 376772743, 0, 0, 377096253, 0, 0, 377363425, 0, 0, 377888570, 0, 0, 377890269, 0, 0, 378218794, 0, 0, 378413716, 0, 0, 412351189, 0, 0, 468253403, 0, 0, 523107051, 0, 0, 578288363, 0, 0, 582035513, 0, 0, 582038835, 0, 0, 582362362, 0, 0, 582364018, 0, 0, 582753917, 0, 0, 582754753, 0, 0, 582758064, 0, 0, 583086575, 0, 0, 583473168, 0, 0, 583864718, 0, 0, 583865554, 0, 0, 583867209, 0, 0, 584190742, 0, 0, 584191578, 0, 0, 585303181, 0, 0, 585304012, 0, 0, 635632363, 0, 0, 691141360, 0, 0, 748157693, 0, 0, 797912141, 0, 0, 798306260, 0, 0, 798306261, 0, 0, 798306262, 0, 0, 798306263, 0, 0, 798306264, 0, 0, 798306265, 0, 0, 798306266, 0, 0, 798306267, 0, 0, 798306268, 0, 0, 798306269, 0, 0, 798306270, 0, 0, 798306271, 0, 0, 798306272, 0, 0, 798306273, 0, 0, 798306274, 0, 0, 798306275, 0, 0, 798306276, 0, 0, 798306277, 0, 0, 798306278, 0, 0, 798306279, 0, 0, 798306280, 0, 0, 798306281, 0, 0, 798306282, 0, 0, 798306283, 0, 0, 799028896, 0, 0, 799355711, 0, 0, 799355712, 0, 0, 799355713, 0, 0, 799355714, 0, 0, 799355715, 0, 0, 799355716, 0, 0, 799355717, 0, 0, 799355718, 0, 0, 799355719, 0, 0, 799355720, 0, 0, 799355721, 0, 0, 799355722, 0, 0, 799355723, 0, 0, 801581236, 0, 0, 803863296, 0, 0, 804135440, 0, 0, 804323696, 0, 0, 804529497, 0, 0, 804529498, 0, 0, 804529499, 0, 0, 804529500, 0, 0, 804529501, 0, 0, 804529502, 0, 0, 804529503, 0, 0, 804784119, 0, 0, 804784950, 0, 0, 804916860, 0, 0, 804921007, 0, 0, 805245376, 0, 0, 805247840, 0, 0, 805371463, 0, 0, 805639400, 0, 0, 805967916, 0, 0, 806290615, 0, 0 )
+
+[node name="Evil_Chilli2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 193, 427 )
+
+[node name="Evil_Chilli3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 93, 520 )
+
+[node name="Evil_Tomato" parent="." instance=ExtResource( 6 )]
+position = Vector2( 189, 849 )
+
+[node name="Evil_Tomato2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1312, 1177 )
+
+[node name="Evil_Tomato3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1349, 1097 )
+
+[node name="Evil_Tomato4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1368, 1178 )
+
+[connection signal="body_entered" from="Player/HitboxArea" to="Player" method="_on_HitboxArea_body_entered"]
