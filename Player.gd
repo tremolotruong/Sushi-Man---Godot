@@ -1,45 +1,40 @@
 extends KinematicBody2D
 
 var movespeed = 600
-var knife_speed = 2000
+var direction
 
+
+export var jump_height : float
+export var jump_peak_t : float
+export var jump_desc_t : float
+
+onready var jump_grav : float = ((-2.0 * jump_height) / (jump_peak_t * jump_peak_t)) * -1.0
+onready var jump_velo : float = ((2.0 * jump_height) / jump_peak_t) * -1.0
+onready var fall_grav : float = ((-2.0 * jump_height) / (jump_desc_t * jump_desc_t)) * -1.0
 
 var speed = Vector2()
-var knife = preload("res://Knife.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func _physics_process(_delta):
-	var motion = Vector2()
+var velocity = Vector2.ZERO
+func _physics_process(delta):
+	velocity.x = 0
+	var gravity = fall_grav
+	if velocity.y < 0.0:
+		gravity = jump_grav
 	
+	velocity.y += gravity * delta
 	if Input.is_action_pressed("ui_left"):
-		motion.x -= 1
+		velocity.x -= 1
 	if Input.is_action_pressed("ui_right"):
-		motion.x += 1
-	if Input.is_action_pressed("ui_up"):
-		motion.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		motion.y += 1
+		velocity.x += 1
+	velocity.x *= movespeed
 
-
-	motion = motion.normalized()
-	motion = move_and_slide(motion*movespeed)
-
-
-	look_at(get_global_mouse_position())
-
-
-	if Input.is_action_just_pressed("shoot"):
-		throw()
-
-func throw():
-	var knife_instance = knife.instance()
-	knife_instance.position = get_global_position()
-	knife_instance.rotation_degrees = rotation_degrees
-	knife_instance.apply_impulse(Vector2(),Vector2(knife_speed,0).rotated(rotation))
-	get_tree().get_root().call_deferred("add_child",knife_instance)
+	if Input.is_action_pressed("ui_up") and is_on_floor():
+		velocity.y = jump_velo
+	velocity = move_and_slide(velocity, Vector2.UP)
 	
 
 func kill():

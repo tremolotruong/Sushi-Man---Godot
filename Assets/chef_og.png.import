@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chef_og.png-f026d6f381693ce25bd120d93b029963.stex"
+path="res://.import/chef_og.png-b22b147a5f1d27af60ec6ff4fc566727.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chef_og.png"
-dest_files=[ "res://.import/chef_og.png-f026d6f381693ce25bd120d93b029963.stex" ]
+source_file="res://Assets/chef_og.png"
+dest_files=[ "res://.import/chef_og.png-b22b147a5f1d27af60ec6ff4fc566727.stex" ]
 
 [params]
 

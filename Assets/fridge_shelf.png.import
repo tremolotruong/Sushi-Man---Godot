@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fridge_shelf.png-2b4348dad0c7c12ac3fb81d00fe2688c.stex"
+path="res://.import/fridge_shelf.png-cd577f19d2de7126319f1559a398e74d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fridge_shelf.png"
-dest_files=[ "res://.import/fridge_shelf.png-2b4348dad0c7c12ac3fb81d00fe2688c.stex" ]
+source_file="res://Assets/fridge_shelf.png"
+dest_files=[ "res://.import/fridge_shelf.png-cd577f19d2de7126319f1559a398e74d.stex" ]
 
 [params]
 

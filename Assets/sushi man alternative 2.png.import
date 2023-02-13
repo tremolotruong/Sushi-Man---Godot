@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sushi man alternative 2.png-b8851c19acc4c9fc0a6e8e106e1feeb4.stex"
+path="res://.import/sushi man alternative 2.png-9aa47f64d864a706714aa3fe800d0bc8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sushi man alternative 2.png"
-dest_files=[ "res://.import/sushi man alternative 2.png-b8851c19acc4c9fc0a6e8e106e1feeb4.stex" ]
+source_file="res://Assets/sushi man alternative 2.png"
+dest_files=[ "res://.import/sushi man alternative 2.png-9aa47f64d864a706714aa3fe800d0bc8.stex" ]
 
 [params]
 

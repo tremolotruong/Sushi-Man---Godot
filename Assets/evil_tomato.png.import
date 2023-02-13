@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/evil_tomato.png-01e585363cedafe5282ea0ea18eb1bc4.stex"
+path="res://.import/evil_tomato.png-46aa2f1e00423b6b75f0a33563a9239d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/evil_tomato.png"
-dest_files=[ "res://.import/evil_tomato.png-01e585363cedafe5282ea0ea18eb1bc4.stex" ]
+source_file="res://Assets/evil_tomato.png"
+dest_files=[ "res://.import/evil_tomato.png-46aa2f1e00423b6b75f0a33563a9239d.stex" ]
 
 [params]
 

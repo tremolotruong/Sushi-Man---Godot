@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fridge_background.png-aa660df51fe8d40cfc1e070b09966ea6.stex"
+path="res://.import/knife2.png-e6c3991ca5169c5698c1b2ee3eef6059.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fridge_background.png"
-dest_files=[ "res://.import/fridge_background.png-aa660df51fe8d40cfc1e070b09966ea6.stex" ]
+source_file="res://Assets/knife2.png"
+dest_files=[ "res://.import/knife2.png-e6c3991ca5169c5698c1b2ee3eef6059.stex" ]
 
 [params]
 
