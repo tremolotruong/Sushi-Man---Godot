@@ -18,3 +18,9 @@ func _physics_process(delta):
 func _on_HitboxArea_body_entered(body):
 	if "Knife" in body.name:
 		queue_free()
+		body.queue_free()
+
+
+func _on_HitboxArea_area_entered(area):
+	if "meleehit" in area.name:
+		queue_free()

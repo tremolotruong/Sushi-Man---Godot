@@ -16,7 +16,7 @@ var speed = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	 $AudioStreamPlayer.play()
 
 var velocity = Vector2.ZERO
 func _physics_process(delta):
@@ -31,6 +31,20 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 	velocity.x *= movespeed
+	
+#	if velocity.y != 0 and is_on_floor():
+#		$AnimatedSprite.animation = 'jump'
+	if velocity.x != 0:
+		$AnimatedSprite.animation = 'run'
+		$AnimatedSprite.play()
+		if velocity.x < 0:
+			$AnimatedSprite.flip_h = true
+		else:
+			$AnimatedSprite.flip_h = false
+	else:
+		$AnimatedSprite.stop()
+		$AnimatedSprite.frame = 0
+		$AnimatedSprite.animation = 'idle'
 
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = jump_velo

@@ -1,26 +1,112 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/chef.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Chef A2.png" type="Texture" id=2]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/fridge_background.png" type="Texture" id=4]
+[ext_resource path="res://Assets/fridge.png" type="Texture" id=4]
 [ext_resource path="res://wall.tres" type="TileSet" id=5]
 [ext_resource path="res://Tomato.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/knife2.png" type="Texture" id=7]
 [ext_resource path="res://weapon.gd" type="Script" id=8]
+[ext_resource path="res://Assets/HoliznaCC0 - Broken Hustle.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Assets/knifeswing.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/knifeswing2.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/woosh.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/hit.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Assets/slash/File1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/slash/File2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/slash/File3.png" type="Texture" id=17]
+[ext_resource path="res://Assets/slash/File5.png" type="Texture" id=18]
+[ext_resource path="res://Assets/slash/File4.png" type="Texture" id=19]
+[ext_resource path="res://Assets/slash/File6.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50, 53.5 )
 
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 54 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 54 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 54 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 32, 54 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 32, 54, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 54, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 54, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 54, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 160, 54, 32, 38 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 24.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "run",
+"speed": 6.0
+} ]
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 54.625, 58.5625 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "slash",
+"speed": 24.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 153.944
+height = 129.186
 
 [node name="World" type="Node2D"]
 position = Vector2( 55, 55 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 877.5, 522 )
-scale = Vector2( 2.66113, 1.58398 )
+position = Vector2( 637, 745 )
+scale = Vector2( 6.56751, 4.96747 )
 texture = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
@@ -35,35 +121,80 @@ zoom = Vector2( 1.5, 1.5 )
 smoothing_enabled = true
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
+position = Vector2( 0, -13 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Player"]
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+position = Vector2( -2, -41 )
+scale = Vector2( 3.8125, 3.44512 )
+frames = SubResource( 4 )
+animation = "jump"
 
 [node name="HitboxArea" type="Area2D" parent="Player"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Player/HitboxArea"]
+position = Vector2( 1, -16 )
 shape = SubResource( 2 )
 
-[node name="weapon" type="Sprite" parent="Player"]
-position = Vector2( 35, 1 )
+[node name="knife" type="Sprite" parent="Player"]
+position = Vector2( 1, 0 )
 rotation = -0.823795
 scale = Vector2( 0.02, 0.02 )
 texture = ExtResource( 7 )
 flip_v = true
 script = ExtResource( 8 )
 
+[node name="swing" type="AudioStreamPlayer2D" parent="Player/knife"]
+position = Vector2( -1152.34, -1318 )
+rotation = 0.823795
+scale = Vector2( 50, 50 )
+stream = ExtResource( 11 )
+volume_db = -15.0
+pitch_scale = 0.99
+
+[node name="swing2" type="AudioStreamPlayer2D" parent="Player/knife"]
+stream = ExtResource( 12 )
+volume_db = -20.0
+max_distance = 100.0
+
+[node name="woosh" type="AudioStreamPlayer2D" parent="Player/knife"]
+stream = ExtResource( 13 )
+pitch_scale = 0.75
+
+[node name="meleeani" type="AnimatedSprite" parent="Player/knife"]
+position = Vector2( -79.8779, -13.3101 )
+rotation = 0.0802851
+scale = Vector2( 30.3623, 21.3722 )
+frames = SubResource( 7 )
+animation = "slash"
+
+[node name="meleehit" type="Area2D" parent="Player/knife/meleeani"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/knife/meleeani/meleehit"]
+position = Vector2( 32.0133, -14.3917 )
+rotation = 1.32645
+scale = Vector2( 1, 1 )
+shape = SubResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 9 )
+volume_db = -25.0
+
 [node name="Evil_Chilli" parent="." instance=ExtResource( 3 )]
 position = Vector2( 920, -8 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="hitsound" type="AudioStreamPlayer2D" parent="Evil_Chilli"]
+position = Vector2( -920, 8 )
+stream = ExtResource( 14 )
+
+[node name="tilemap" type="TileMap" parent="."]
 scale = Vector2( 0.1, 0.1 )
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 1, 1 )
 cell_quadrant_size = 1
 format = 1
-tile_data = PoolIntArray( -39257525, 0, 0, 16448070, 0, 0, 73792076, 0, 0, 87362652, 0, 0, 88282265, 0, 0, 88289032, 0, 0, 89138825, 0, 0, 90906067, 0, 0, 91751348, 0, 0, 129497687, 0, 0, 187562589, 0, 0, 188353980, 0, 0, 188355664, 0, 0, 188616963, 0, 0, 188616964, 0, 0, 188616965, 0, 0, 188616966, 0, 0, 188616967, 0, 0, 188616968, 0, 0, 188616969, 0, 0, 188616970, 0, 0, 188616971, 0, 0, 188616972, 0, 0, 188616973, 0, 0, 188616974, 0, 0, 188616975, 0, 0, 189077386, 0, 0, 189205119, 0, 0, 189398405, 0, 0, 189333699, 0, 0, 189471416, 0, 0, 189472247, 0, 0, 189662203, 0, 0, 189663048, 0, 0, 189800757, 0, 0, 190194793, 0, 0, 190196420, 0, 0, 190916491, 0, 0, 192032231, 0, 0, 245627509, 0, 0, 303692447, 0, 0, 361822929, 0, 0, 376245133, 0, 0, 376245920, 0, 0, 376246756, 0, 0, 376247606, 0, 0, 376372313, 0, 0, 376569497, 0, 0, 376504777, 0, 0, 376505601, 0, 0, 376772743, 0, 0, 377096253, 0, 0, 377363425, 0, 0, 377888570, 0, 0, 377890269, 0, 0, 378218794, 0, 0, 378413716, 0, 0, 412351189, 0, 0, 468253403, 0, 0, 523107051, 0, 0, 578288363, 0, 0, 582035513, 0, 0, 582038835, 0, 0, 582362362, 0, 0, 582364018, 0, 0, 582753917, 0, 0, 582754753, 0, 0, 582758064, 0, 0, 583086575, 0, 0, 583473168, 0, 0, 583864718, 0, 0, 583865554, 0, 0, 583867209, 0, 0, 584190742, 0, 0, 584191578, 0, 0, 585303181, 0, 0, 585304012, 0, 0, 635632363, 0, 0, 691141360, 0, 0, 748157693, 0, 0, 797912141, 0, 0, 798306260, 0, 0, 798306261, 0, 0, 798306262, 0, 0, 798306263, 0, 0, 798306264, 0, 0, 798306265, 0, 0, 798306266, 0, 0, 798306267, 0, 0, 798306268, 0, 0, 798306269, 0, 0, 798306270, 0, 0, 798306271, 0, 0, 798306272, 0, 0, 798306273, 0, 0, 798306274, 0, 0, 798306275, 0, 0, 798306276, 0, 0, 798306277, 0, 0, 798306278, 0, 0, 798306279, 0, 0, 798306280, 0, 0, 798306281, 0, 0, 798306282, 0, 0, 798306283, 0, 0, 799028896, 0, 0, 799355711, 0, 0, 799355712, 0, 0, 799355713, 0, 0, 799355714, 0, 0, 799355715, 0, 0, 799355716, 0, 0, 799355717, 0, 0, 799355718, 0, 0, 799355719, 0, 0, 799355720, 0, 0, 799355721, 0, 0, 799355722, 0, 0, 799355723, 0, 0, 801581236, 0, 0, 803863296, 0, 0, 804135440, 0, 0, 804323696, 0, 0, 804529497, 0, 0, 804529498, 0, 0, 804529499, 0, 0, 804529500, 0, 0, 804529501, 0, 0, 804529502, 0, 0, 804529503, 0, 0, 804784119, 0, 0, 804784950, 0, 0, 804916860, 0, 0, 804921007, 0, 0, 805245376, 0, 0, 805247840, 0, 0, 805371463, 0, 0, 805639400, 0, 0, 805967916, 0, 0, 806290615, 0, 0 )
+tile_data = PoolIntArray( -154142134, 0, 0, -97846710, 0, 0, -39257525, 0, 0, 16448070, 0, 0, 73792076, 0, 0, 87362652, 0, 0, 88282265, 0, 0, 88289032, 0, 0, 89138825, 0, 0, 90906067, 0, 0, 91751348, 0, 0, 129497687, 0, 0, 187562589, 0, 0, 188353980, 0, 0, 188355664, 0, 0, 188616963, 0, 0, 188616964, 0, 0, 188616965, 0, 0, 188616966, 0, 0, 188616967, 0, 0, 188616968, 0, 0, 188616969, 0, 0, 188616970, 0, 0, 188616971, 0, 0, 188616972, 0, 0, 188616973, 0, 0, 188616974, 0, 0, 188616975, 0, 0, 189077386, 0, 0, 189205119, 0, 0, 189398405, 0, 0, 189333699, 0, 0, 189471416, 0, 0, 189472247, 0, 0, 189662203, 0, 0, 189663048, 0, 0, 189800757, 0, 0, 190194793, 0, 0, 190196420, 0, 0, 190916491, 0, 0, 192032231, 0, 0, 245627509, 0, 0, 303692447, 0, 0, 361822929, 0, 0, 376245133, 0, 0, 376245920, 0, 0, 376246756, 0, 0, 376247606, 0, 0, 376372313, 0, 0, 376569497, 0, 0, 376504777, 0, 0, 376505601, 0, 0, 376772743, 0, 0, 377096253, 0, 0, 377363425, 0, 0, 377888570, 0, 0, 377890269, 0, 0, 378218794, 0, 0, 378413716, 0, 0, 412351189, 0, 0, 468253403, 0, 0, 475869655, 0, 0, 523107051, 0, 0, 578288363, 0, 0, 582035513, 0, 0, 582038835, 0, 0, 582362362, 0, 0, 582364018, 0, 0, 582753917, 0, 0, 582754753, 0, 0, 582758064, 0, 0, 583086575, 0, 0, 583473168, 0, 0, 583864718, 0, 0, 583865554, 0, 0, 583867209, 0, 0, 584190742, 0, 0, 584191578, 0, 0, 585303181, 0, 0, 585304012, 0, 0, 635632363, 0, 0, 691141360, 0, 0, 748157693, 0, 0, 797912141, 0, 0, 798306260, 0, 0, 798306261, 0, 0, 798306262, 0, 0, 798306263, 0, 0, 798306264, 0, 0, 798306265, 0, 0, 798306266, 0, 0, 798306267, 0, 0, 798306268, 0, 0, 798306269, 0, 0, 798306270, 0, 0, 798306271, 0, 0, 798306272, 0, 0, 798306273, 0, 0, 798306274, 0, 0, 798306275, 0, 0, 798306276, 0, 0, 798306277, 0, 0, 798306278, 0, 0, 798306279, 0, 0, 798306280, 0, 0, 798306281, 0, 0, 798306282, 0, 0, 798306283, 0, 0, 799028896, 0, 0, 799355711, 0, 0, 799355712, 0, 0, 799355713, 0, 0, 799355714, 0, 0, 799355715, 0, 0, 799355716, 0, 0, 799355717, 0, 0, 799355718, 0, 0, 799355719, 0, 0, 799355720, 0, 0, 799355721, 0, 0, 799355722, 0, 0, 799355723, 0, 0, 801581236, 0, 0, 803863296, 0, 0, 804135440, 0, 0, 804323696, 0, 0, 804529497, 0, 0, 804529498, 0, 0, 804529499, 0, 0, 804529500, 0, 0, 804529501, 0, 0, 804529502, 0, 0, 804529503, 0, 0, 804784119, 0, 0, 804784950, 0, 0, 804916860, 0, 0, 804921007, 0, 0, 805245376, 0, 0, 805247840, 0, 0, 805371463, 0, 0, 805639400, 0, 0, 805967916, 0, 0, 806290615, 0, 0 )
 
 [node name="Evil_Chilli2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 193, 427 )
@@ -84,3 +215,5 @@ position = Vector2( 1349, 1097 )
 position = Vector2( 1368, 1178 )
 
 [connection signal="body_entered" from="Player/HitboxArea" to="Player" method="_on_HitboxArea_body_entered"]
+[connection signal="animation_finished" from="Player/knife/meleeani" to="Player/knife" method="_on_meleeani_animation_finished"]
+[connection signal="area_entered" from="Player/knife/meleeani/meleehit" to="Player/knife" method="_on_meleehit_area_entered"]
