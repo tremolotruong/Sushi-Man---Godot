@@ -36,8 +36,3 @@ func _on_meleeani_animation_finished():
 	$meleeani.hide()
 	$meleeani/meleehit/CollisionShape2D.set_deferred('disabled', true)
 	$meleeani.frame = 0
-
-
-#func _on_meleehit_area_entered(area):
-#	if area == "HitboxArea":
-		

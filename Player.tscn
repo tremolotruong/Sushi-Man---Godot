@@ -159,4 +159,3 @@ volume_db = -25.0
 
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_HitboxArea_body_entered"]
 [connection signal="animation_finished" from="knife/meleeani" to="knife" method="_on_meleeani_animation_finished"]
-[connection signal="area_entered" from="knife/meleeani/meleehit" to="knife" method="_on_meleehit_area_entered"]
