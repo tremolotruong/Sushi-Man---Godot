@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HoliznaCC0 - Broken Hustle.mp3-e7a03013b24f27acc743b84e242c100e.mp3str"
+
+[deps]
+
+source_file="res://Assets/HoliznaCC0 - Broken Hustle.mp3"
+dest_files=[ "res://.import/HoliznaCC0 - Broken Hustle.mp3-e7a03013b24f27acc743b84e242c100e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

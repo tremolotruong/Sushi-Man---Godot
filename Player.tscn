@@ -1,0 +1,161 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://weapon.gd" type="Script" id=1]
+[ext_resource path="res://Assets/knifeswing2.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/woosh.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/slash/File3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/slash/File4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/slash/File6.png" type="Texture" id=6]
+[ext_resource path="res://Assets/knife2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/HoliznaCC0 - Broken Hustle.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Assets/slash/File5.png" type="Texture" id=9]
+[ext_resource path="res://Player.gd" type="Script" id=10]
+[ext_resource path="res://Assets/knifeswing.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/slash/File1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/slash/File2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Chef A2.png" type="Texture" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 53.5 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 54 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 54 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 14 )
+region = Rect2( 96, 0, 32, 54 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 14 )
+region = Rect2( 128, 0, 32, 54 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 54, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 54, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 14 )
+region = Rect2( 96, 54, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 14 )
+region = Rect2( 128, 54, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 14 )
+region = Rect2( 160, 54, 32, 38 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 24.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "run",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 54.625, 58.5625 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "slash",
+"speed": 24.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 153.944
+height = 129.186
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 10 )
+jump_height = 200.0
+jump_peak_t = 0.2
+jump_desc_t = 0.4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+smoothing_enabled = true
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -13 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2, -41 )
+scale = Vector2( 3.8125, 3.44512 )
+frames = SubResource( 4 )
+animation = "jump"
+
+[node name="HitboxArea" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2( 1, -16 )
+shape = SubResource( 2 )
+
+[node name="knife" type="Sprite" parent="."]
+position = Vector2( 1, 0 )
+rotation = -0.823795
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 7 )
+flip_v = true
+script = ExtResource( 1 )
+
+[node name="swing" type="AudioStreamPlayer2D" parent="knife"]
+position = Vector2( -1152.34, -1318 )
+rotation = 0.823795
+scale = Vector2( 50, 50 )
+stream = ExtResource( 11 )
+volume_db = -15.0
+pitch_scale = 0.99
+
+[node name="swing2" type="AudioStreamPlayer2D" parent="knife"]
+stream = ExtResource( 2 )
+volume_db = -20.0
+max_distance = 100.0
+
+[node name="woosh" type="AudioStreamPlayer2D" parent="knife"]
+stream = ExtResource( 3 )
+pitch_scale = 0.75
+
+[node name="meleeani" type="AnimatedSprite" parent="knife"]
+position = Vector2( -79.8779, -13.3101 )
+rotation = 0.0802851
+scale = Vector2( 30.3623, 21.3722 )
+frames = SubResource( 7 )
+animation = "slash"
+
+[node name="meleehit" type="Area2D" parent="knife/meleeani"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="knife/meleeani/meleehit"]
+position = Vector2( 32.0133, -14.3917 )
+rotation = 1.32645
+shape = SubResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -25.0
+
+[connection signal="body_entered" from="HitboxArea" to="." method="_on_HitboxArea_body_entered"]
+[connection signal="animation_finished" from="knife/meleeani" to="knife" method="_on_meleeani_animation_finished"]
