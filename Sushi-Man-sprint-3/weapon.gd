@@ -23,8 +23,6 @@ func throw():
 	$woosh.play()
 	knife_instance.apply_impulse(Vector2(),Vector2(knife_speed,0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child",knife_instance)
-
-
 func melee():
 	$swing2.play()
 	$woosh.play()
@@ -38,4 +36,3 @@ func _on_meleeani_animation_finished():
 	$meleeani.hide()
 	$meleeani/meleehit/CollisionShape2D.set_deferred('disabled', true)
 	$meleeani.frame = 0
-
