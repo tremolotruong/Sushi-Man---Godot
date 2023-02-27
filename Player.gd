@@ -25,8 +25,6 @@ onready var fall_grav : float = ((-2.0 * jump_height) / (jump_desc_t * jump_desc
 func _ready():
 	$AudioStreamPlayer.play()
 	$gamecamera/UI/life/hearts.rect_size.x = max_hearts * 16
-#	connect("life_changed", $gamecamera/UI/life/hearts, "on_life_change")
-#	emit_signal("life_changed", max_hearts)
 
 var velocity = Vector2.ZERO
 
