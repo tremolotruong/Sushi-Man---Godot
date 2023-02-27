@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/fish sheets/fishTilesheet.png" type="Texture" id=1]
+[ext_resource path="res://Blowfish.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 640, 320, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 704, 320, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 83.5, 79.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 83, 78.75 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 71.2827, 55.2827 )
+scale = Vector2( 3.05367, 2.99117 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 71, 54.5 )
+shape = SubResource( 1 )
+
+[node name="HitboxArea" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2( 73, 54.75 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_HitboxArea_area_entered"]
+[connection signal="body_entered" from="HitboxArea" to="." method="_on_HitboxArea_body_entered"]

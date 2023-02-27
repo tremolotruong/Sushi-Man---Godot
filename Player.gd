@@ -55,7 +55,7 @@ func kill():
 	get_tree().reload_current_scene()  # this will likely be changed, as this is to make the game reload every time the player dies.
 
 func _on_HitboxArea_body_entered(body):
-	if "Enemy" in body.name:
+	if "Blowfish" in body.name:
 		kill()
-	if "Tomato" in body.name:
+	if "Skelefish" in body.name:
 		kill()
