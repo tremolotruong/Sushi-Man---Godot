@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var max_hearts = 6
 var num_hearts = 6
 
