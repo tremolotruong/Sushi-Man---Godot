@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
-
-var max_hearts = 6
-var num_hearts = 6
+var max_hearts = 20
+var num_hearts = max_hearts
 
 var knockback_direction
 var knockback_delay = 40
@@ -105,8 +104,6 @@ func _on_HitboxArea_body_entered(body):
 	if "enemy" in body.name:
 		in_hitbox = true
 		body_in_hitbox = body.name
-	if "spikes" in body.name:
-		kill()
 		
 
 func _on_HitboxArea_body_exited(body):
