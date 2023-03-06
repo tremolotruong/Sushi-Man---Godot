@@ -1,4 +1,5 @@
-[gd_scene load_steps=21 format=2]
+
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://background.gd" type="Script" id=2]
@@ -11,6 +12,8 @@
 [ext_resource path="res://World.gd" type="Script" id=9]
 [ext_resource path="res://Skelefish.tscn" type="PackedScene" id=10]
 [ext_resource path="res://shark.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/font/joystix monospace.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://ContextPopUp.gd" type="Script" id=12]
 [ext_resource path="res://Assets/hit.mp3" type="AudioStream" id=14]
 
 [sub_resource type="AtlasTexture" id=27]
@@ -45,8 +48,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=34]
-extents = Vector2( 478.75, 82 )
+[sub_resource type="DynamicFont" id=34]
+size = 32
+font_data = ExtResource( 11 )
 
 [node name="World" type="Node2D"]
 position = Vector2( 55, 55 )
@@ -54,7 +58,7 @@ script = ExtResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -52.0
-margin_top = -814.0
+margin_top = -709.0
 margin_right = 10906.0
 margin_bottom = 481.0
 color = Color( 0.596078, 0.960784, 0.988235, 1 )
@@ -62,27 +66,12 @@ color = Color( 0.596078, 0.960784, 0.988235, 1 )
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = -54.0
 margin_top = 300.0
-margin_right = 15741.0
+margin_right = 10890.0
 margin_bottom = 2762.0
 color = Color( 0.0666667, 0.678431, 0.756863, 1 )
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-margin_left = 13136.0
-margin_top = 516.0
-margin_right = 15740.0
-margin_bottom = 1504.0
-color = Color( 0.196078, 0.176471, 0.176471, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 13216.0
-margin_top = 1491.0
-margin_right = 15748.0
-margin_bottom = 1523.0
-texture = ExtResource( 5 )
-stretch_mode = 1
-
 [node name="Sun" type="AnimatedSprite" parent="."]
-position = Vector2( 501, -418 )
+position = Vector2( 611, -389 )
 scale = Vector2( 8.28125, 8.28125 )
 frames = SubResource( 33 )
 animation = "sun"
@@ -152,6 +141,7 @@ position = Vector2( 9321, 1249 )
 [node name="enemy_crab5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 7661, 1257 )
 
+
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1426, -2 )
 
@@ -182,7 +172,54 @@ position = Vector2( 6319, 1949 )
 position = Vector2( 6117, 176 )
 
 [node name="Skelefish" parent="." instance=ExtResource( 10 )]
+
 position = Vector2( 3044, 236 )
 
 [node name="shark" parent="." instance=ExtResource( 11 )]
 position = Vector2( 4827, 807 )
+
+position = Vector2( 858, 55 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 51, 548 )
+
+[node name="TutorialPopUp" type="Label" parent="Player"]
+margin_left = -68.0
+margin_top = -219.0
+margin_right = 67.0
+margin_bottom = -125.0
+custom_fonts/font = SubResource( 34 )
+text = "  W
+A S D"
+valign = 1
+
+[node name="TutorialPopUp2" type="Label" parent="Player"]
+margin_left = -188.0
+margin_top = -326.0
+margin_right = 244.0
+margin_bottom = -232.0
+custom_fonts/font = SubResource( 34 )
+text = "R-Mouse to throw
+l-mouse to slash"
+valign = 1
+
+[node name="ContextPopUp" type="Label" parent="Player"]
+margin_left = -314.0
+margin_top = 77.0
+margin_right = 349.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 34 )
+text = "Fight and keep moving!
+this sushi ain't gonna roll itself!"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 12 )
+
+[node name="Timer" type="Timer" parent="Player/ContextPopUp"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Player/ContextPopUp/Timer" to="Player/ContextPopUp" method="_on_Timer_timeout"]
+
