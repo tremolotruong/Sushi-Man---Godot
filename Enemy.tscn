@@ -36,6 +36,7 @@ height = 40.0
 
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 954, 55 )
+collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

@@ -2,6 +2,7 @@ extends Sprite
 
 var knife_speed = 2000
 var knife = preload("res://Knife.tscn")
+var can_melee = true
 
 func _ready():
 	$meleeani.hide()
@@ -12,7 +13,7 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("throw"):
 		throw()
-	if Input.is_action_pressed("melee"):
+	if Input.is_action_pressed("melee") and can_melee:
 		melee()
 		
 func throw():
@@ -24,6 +25,8 @@ func throw():
 	knife_instance.apply_impulse(Vector2(),Vector2(knife_speed,0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child",knife_instance)
 func melee():
+	can_melee = false
+	$meleetimer.start()
 	$swing2.play()
 	$woosh.play()
 	$meleeani.show()
@@ -36,3 +39,7 @@ func _on_meleeani_animation_finished():
 	$meleeani.hide()
 	$meleeani/meleehit/CollisionShape2D.set_deferred('disabled', true)
 	$meleeani.frame = 0
+
+
+func _on_meleetimer_timeout():
+	can_melee = true
