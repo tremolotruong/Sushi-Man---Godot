@@ -46,6 +46,7 @@ extents = Vector2( 73.5, 46.5 )
 extents = Vector2( 74, 47 )
 
 [node name="crab" type="KinematicBody2D"]
+collision_layer = 0
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

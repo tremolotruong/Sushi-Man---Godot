@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-var max_hearts = 20
-var num_hearts = max_hearts
+
+var max_hearts = 4
+var num_hearts = 4
 
 var knockback_direction
 var knockback_delay = 40
@@ -34,8 +35,6 @@ func _ready():
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
-	if invincible:
-		$PlayerCollision.set_deferred('disabled', true)
 	velocity.x = 0
 	var gravity = fall_grav
 	if velocity.y < 0.0:
@@ -61,11 +60,14 @@ func _physics_process(delta):
 		
 	else:
 		$AnimatedSprite.play("idle")
+	if is_on_floor() and not dashing:
+		can_dash = true
 		
-	dash()
+	if Input.is_action_just_pressed("shift") and can_dash:
+		dash()
 	
 	
-	if knockback_delay <= 0 and in_hitbox:
+	if knockback_delay <= 0 and in_hitbox and not invincible:
 		damage()
 		knockback(body_in_hitbox)
 		knockback_delay = 40
@@ -94,20 +96,22 @@ func _physics_process(delta):
 	
 	
 func dash():
-	if is_on_floor():
-		can_dash = true
 	if Input.is_action_pressed("ui_right"):
 		dash_direction = Vector2(1, 0)
 	if Input.is_action_pressed("ui_left"):
 		dash_direction = Vector2(-1,0)
 	
-	if Input.is_action_just_pressed("shift"):
-		velocity = dash_direction.normalized() * 6000
+	
+	velocity = dash_direction.normalized() * 12000
+	
+	can_dash = false
+	dashing = true
+	modulate.a = 0.5
+	invincible = true
+	$invistimer.start()
+	$dashtimer.start()
 		
-		can_dash = false
-		dashing = true
-		yield(get_tree().create_timer(0.2), "timeout")
-		dashing = false
+		
 		
 
 func kill():
@@ -130,6 +134,8 @@ func _on_HitboxArea_body_entered(body):
 	if "enemy" in body.name:
 		in_hitbox = true
 		body_in_hitbox = body.name
+	if "spikes" in body.name:
+		kill()
 		
 
 func _on_HitboxArea_body_exited(body):
@@ -138,4 +144,13 @@ func _on_HitboxArea_body_exited(body):
 
 
 func _on_hit_timer_timeout():
+	modulate.a = 1
+
+
+func _on_dashtimer_timeout():
+	dashing = false
+
+
+func _on_invistimer_timeout():
+	invincible = false
 	modulate.a = 1

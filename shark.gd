@@ -5,8 +5,8 @@ var knockback_direction
 var knockback_delay = 1000
 var knockback = false
 var direction = 1
-var health = 5
-var speed = 3
+var health = 10
+var speed = 4
 var move = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +17,7 @@ func _physics_process(_delta):
 		var Player = get_parent().get_node("Player")
 		
 		motion = position.direction_to(Player.position) * speed
-		if motion.x < 0:
+		if motion.x > 0:
 			$AnimatedSprite.flip_h = true
 			direction = -1
 		else:
