@@ -26,7 +26,7 @@ func _physics_process(_delta):
 			
 		if knockback:
 			#should be knockback_direction vv
-			motion.x = 150 * knockback_direction
+			motion.x = 300 * knockback_direction
 			knockback = false
 			knockback_delay = 1000
 			

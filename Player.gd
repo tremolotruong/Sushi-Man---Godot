@@ -116,6 +116,7 @@ func dash():
 
 func kill():
 	get_tree().reload_current_scene()  # this will likely be changed, as this is to make the game reload every time the player dies.
+	
 func knockback(name):
 	var enemy_direction = get_parent().get_node("{enemy}".format({"enemy": name})).direction
 	knockback_direction = enemy_direction
@@ -136,6 +137,9 @@ func _on_HitboxArea_body_entered(body):
 		body_in_hitbox = body.name
 	if "spikes" in body.name:
 		kill()
+	if "shark" in body.name:
+		in_hitbox = true
+		body_in_hitbox = body.name
 		
 
 func _on_HitboxArea_body_exited(body):

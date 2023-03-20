@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Sushi Man Sprint 3"
+config/name="Sushi Man Pre-Alpha"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
@@ -20,6 +20,7 @@ PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
 IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
 UserData="*res://addons/github-integration/scripts/user_data.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+Checkpoint="*res://autoloader/Checkpoint.gd"
 
 [display]
 

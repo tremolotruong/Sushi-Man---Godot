@@ -5,8 +5,8 @@ var knockback_direction
 var knockback_delay = 1000
 var knockback = false
 var direction = 1
-var health = 10
-var speed = 4
+var health = 15
+var speed = 2
 var move = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,7 +26,7 @@ func _physics_process(_delta):
 			
 		if knockback:
 			#should be knockback_direction vv
-			motion.x = 150 * knockback_direction
+			motion.x = 200 * knockback_direction
 			knockback = false
 			knockback_delay = 1000
 			

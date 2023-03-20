@@ -3,7 +3,7 @@ var movement = Vector2()
 var direction = -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	movement.x = -100
+	movement.x = -50
 
 func _physics_process(_delta):
 	$AnimatedSprite.play()
