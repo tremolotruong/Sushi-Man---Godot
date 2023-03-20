@@ -195,7 +195,7 @@ custom_fonts/font = SubResource( 37 )
 text = "GIANT TUNA >>
 (in progress)"
 
-[node name="Area2D" parent="." instance=ExtResource( 15 )]
+[node name="checkpoint2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 16890, 2009 )
 scale = Vector2( 6, 6 )
 
