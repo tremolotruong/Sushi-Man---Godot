@@ -195,8 +195,12 @@ custom_fonts/font = SubResource( 37 )
 text = "GIANT TUNA >>
 (in progress)"
 
+[node name="Area2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( 16890, 2009 )
+scale = Vector2( 6, 6 )
+
 [node name="checkpoint" parent="." instance=ExtResource( 15 )]
-position = Vector2( 3205, 756 )
+position = Vector2( 8655, 369 )
 scale = Vector2( 6, 6 )
 
 [node name="checkpoint1" parent="." instance=ExtResource( 15 )]
@@ -231,7 +235,7 @@ position = Vector2( 569.75, 405 )
 scale = Vector2( 20.1641, 12.875 )
 texture = ExtResource( 8 )
 
-[node name="shark" parent="." instance=ExtResource( 11 )]
+[node name="enemyshark" parent="." instance=ExtResource( 11 )]
 position = Vector2( 5919, 1177 )
 collision_layer = 0
 
