@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://turtlesheet.png" type="Texture" id=1]
+[ext_resource path="res://Assets/fonts/m5x7.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://turtle.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 12, 13.6 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+
+[sub_resource type="DynamicFont" id=10]
+size = 60
+font_data = ExtResource( 2 )
+
+[node name="turtle" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="dialogueturtle" type="Area2D" parent="."]
+scale = Vector2( 5, 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueturtle"]
+position = Vector2( -0.8, -2.4 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 5, 5 )
+frames = SubResource( 3 )
+
+[node name="textbox" type="Panel" parent="."]
+margin_left = -392.0
+margin_top = 304.0
+margin_right = 400.0
+margin_bottom = 680.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="dialogue" type="Label" parent="textbox"]
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 793.0
+margin_bottom = 284.0
+custom_fonts/font = SubResource( 10 )
+text = " TUTORIAL TURTLE:
+
+ be careful when walking near crabs! 
+ they have sharp claws and invincible 
+ shells that can't be broken"
+
+[node name="text_timer" type="Timer" parent="textbox"]
+wait_time = 5.0
+
+[connection signal="timeout" from="textbox/text_timer" to="." method="_on_text_timer_timeout"]
