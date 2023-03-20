@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/pixil-frame-0 (8).png-96a1cffb44203ebe22085a068390c1fd.stex"
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 2 )

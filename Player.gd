@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 
-var max_hearts = 4
-var num_hearts = 4
+var max_hearts = 5
+var num_hearts = 5
 
 var knockback_direction
 var knockback_delay = 40

@@ -16,6 +16,7 @@ func _physics_process(_delta):
 		throw()
 	if Input.is_action_pressed("melee") and can_melee:
 		melee()
+	
 		
 func throw():
 	can_throw = false
@@ -31,17 +32,17 @@ func throw():
 func melee():
 	can_melee = false
 	$meleetimer.start()
+	$melee_hitbox.start()
+	$meleeani/meleehit/CollisionShape2D.set_deferred('disabled', false)
 	$swing2.play()
 	$woosh.play()
 	$meleeani.show()
 	$meleeani.play()
-	$meleeani/meleehit/CollisionShape2D.set_deferred('disabled', false)
 	
 
 func _on_meleeani_animation_finished():
 	$meleeani.stop()
 	$meleeani.hide()
-	$meleeani/meleehit/CollisionShape2D.set_deferred('disabled', true)
 	$meleeani.frame = 0
 
 
@@ -52,3 +53,7 @@ func _on_meleetimer_timeout():
 func _on_throwtimer_timeout():
 	can_throw = true
 	show()
+
+
+func _on_melee_hitbox_timeout():
+	$meleeani/meleehit/CollisionShape2D.set_deferred('disabled', true)

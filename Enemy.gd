@@ -42,6 +42,7 @@ func knockback():
 
 func _on_HitboxArea_body_entered(body):
 	if "Knife" in body.name:
+		move = true
 		health -= 1
 		knockback()
 		if health <= 0:
