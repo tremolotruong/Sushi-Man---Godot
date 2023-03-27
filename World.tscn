@@ -199,6 +199,12 @@ text = "GIANT TUNA >>
 position = Vector2( 16890, 2009 )
 scale = Vector2( 6, 6 )
 
+[node name="Area2D" parent="checkpoint2" instance=ExtResource( 15 )]
+position = Vector2( -2320, -208.333 )
+
+[node name="Area2D" parent="checkpoint2/Area2D" instance=ExtResource( 15 )]
+position = Vector2( 1353.5, 177.833 )
+
 [node name="checkpoint" parent="." instance=ExtResource( 15 )]
 position = Vector2( 8655, 369 )
 scale = Vector2( 6, 6 )

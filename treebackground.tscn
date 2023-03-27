@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Rocky Roads/Backgrounds/trees.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 592.0
+margin_bottom = 296.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 592.0
+margin_right = 1184.0
+margin_bottom = 296.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 1184.0
+margin_right = 1776.0
+margin_bottom = 296.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+margin_left = 2368.0
+margin_right = 2960.0
+margin_bottom = 296.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+margin_left = 1776.0
+margin_right = 2368.0
+margin_bottom = 296.0
+texture = ExtResource( 1 )
+stretch_mode = 1

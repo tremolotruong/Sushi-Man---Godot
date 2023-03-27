@@ -50,7 +50,6 @@ scale = Vector2( 5, 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueturtle"]
 position = Vector2( -0.8, -2.4 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 8 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
