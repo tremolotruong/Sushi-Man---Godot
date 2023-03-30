@@ -6,4 +6,10 @@ func _enter_tree():
 		
 func _ready():
 	$Sun.play()
+	$enterportal.play()
 
+
+
+func _on_enterportal_animation_finished():
+	$enterportal.stop()
+	$enterportal.hide()
