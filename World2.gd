@@ -13,3 +13,6 @@ func _ready():
 func _on_enterportal_animation_finished():
 	$enterportal.stop()
 	$enterportal.hide()
+
+
+	

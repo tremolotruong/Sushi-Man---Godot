@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://weapon.gd" type="Script" id=1]
 [ext_resource path="res://Assets/knifeswing2.wav" type="AudioStream" id=2]
@@ -16,7 +16,8 @@
 [ext_resource path="res://Assets/Chef A2.png" type="Texture" id=14]
 [ext_resource path="res://Assets/sushiheart.png" type="Texture" id=15]
 [ext_resource path="res://life.gd" type="Script" id=16]
-[ext_resource path="res://Assets/knife.png" type="Texture" id=17]
+[ext_resource path="res://cursor.tscn" type="PackedScene" id=17]
+[ext_resource path="res://bosshealthbar.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39, 59 )
@@ -127,35 +128,13 @@ texture = ExtResource( 15 )
 expand = true
 stretch_mode = 2
 
-[node name="cooldownbutton" type="TextureButton" parent="gamecamera/UI"]
-anchor_left = 0.961
-anchor_top = 1.0
-anchor_right = 0.961
-anchor_bottom = 1.0
-margin_left = -64.064
-margin_top = -104.0
-margin_right = 39.936
-texture_normal = ExtResource( 17 )
-expand = true
+[node name="bosshealthbar" parent="gamecamera/UI" instance=ExtResource( 18 )]
+margin_left = 86.0
+margin_top = 808.0
+margin_right = 1360.0
+margin_bottom = 856.0
 
-[node name="TextureProgress" type="TextureProgress" parent="gamecamera/UI/cooldownbutton"]
-margin_left = -16.0
-margin_top = -16.0
-margin_right = 24.0
-margin_bottom = 24.0
-
-[node name="Timer" type="Timer" parent="gamecamera/UI/cooldownbutton/TextureProgress"]
-
-[node name="cooldowncounter" type="MarginContainer" parent="gamecamera/UI/cooldownbutton"]
-margin_left = -56.0
-margin_top = -64.0
-margin_right = -16.0
-margin_bottom = -24.0
-
-[node name="value" type="Label" parent="gamecamera/UI/cooldownbutton/cooldowncounter"]
-margin_top = 13.0
-margin_right = 40.0
-margin_bottom = 27.0
+[node name="cursor" parent="gamecamera/UI" instance=ExtResource( 17 )]
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2( -2, -31 )
