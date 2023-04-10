@@ -129,10 +129,10 @@ expand = true
 stretch_mode = 2
 
 [node name="bosshealthbar" parent="gamecamera/UI" instance=ExtResource( 18 )]
-margin_left = 86.0
-margin_top = 808.0
-margin_right = 1360.0
-margin_bottom = 856.0
+margin_left = 120.0
+margin_top = 784.0
+margin_right = 1394.0
+margin_bottom = 832.0
 
 [node name="cursor" parent="gamecamera/UI" instance=ExtResource( 17 )]
 
