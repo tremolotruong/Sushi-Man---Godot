@@ -63,8 +63,12 @@ func _process(delta):
 
 func attack():
 	$AnimatedSprite.play("attack")
-	$AnimatedSprite.position.x = -312
-	$AnimatedSprite.position.y = -32
+	if direction == -1:
+		$AnimatedSprite.position.x = -312
+		$AnimatedSprite.position.y = -32
+	else:
+		$AnimatedSprite.position.x = 312
+		$AnimatedSprite.position.y = -32
 	$anchorhitbox.disabled = false
 	
 
