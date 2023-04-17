@@ -31,6 +31,7 @@ onready var fall_grav : float = ((-2.0 * jump_height) / (jump_desc_t * jump_desc
 func _ready():
 	$AudioStreamPlayer.play()
 	$gamecamera/UI/life/hearts.rect_size.x = max_hearts * 16
+	$gamecamera/UI/bosshealthbar.hide()
 
 var velocity = Vector2.ZERO
 

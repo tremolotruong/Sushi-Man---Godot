@@ -1,11 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://turtlesheet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/fonts/m5x7.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://turtle.gd" type="Script" id=3]
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 12, 13.6 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
@@ -45,37 +42,37 @@ font_data = ExtResource( 2 )
 [node name="turtle" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="dialogueturtle" type="Area2D" parent="."]
-scale = Vector2( 5, 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueturtle"]
-position = Vector2( -0.8, -2.4 )
-shape = SubResource( 8 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 5, 5 )
+scale = Vector2( 6, 6 )
 frames = SubResource( 3 )
 
 [node name="textbox" type="Panel" parent="."]
 margin_left = -392.0
-margin_top = 304.0
+margin_top = -576.0
 margin_right = 400.0
-margin_bottom = 680.0
+margin_bottom = -200.0
 custom_styles/panel = SubResource( 9 )
 
 [node name="dialogue" type="Label" parent="textbox"]
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 793.0
-margin_bottom = 284.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = 781.0
+margin_bottom = 378.0
 custom_fonts/font = SubResource( 10 )
-text = " TUTORIAL TURTLE:
+text = "TUTORIAL TURTLE:
+ Hey, I'm tutorial turtle! 
 
- be careful when walking near crabs! 
- they have sharp claws and invincible 
- shells that can't be broken"
+ It's been a while since we've seen
+ a chef around here...  You must be 
+ looking for the magical ingredients!\""
 
 [node name="text_timer" type="Timer" parent="textbox"]
 wait_time = 5.0
+one_shot = true
+
+[node name="text2_timer" type="Timer" parent="textbox"]
+wait_time = 7.0
+one_shot = true
 
 [connection signal="timeout" from="textbox/text_timer" to="." method="_on_text_timer_timeout"]
+[connection signal="timeout" from="textbox/text2_timer" to="." method="_on_text2_timer_timeout"]
