@@ -239,7 +239,7 @@ scale = Vector2( 7.29688, 7.29688 )
 frames = SubResource( 46 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1911, -861 )
+position = Vector2( 16814, 1999 )
 
 [node name="enemy_fish11" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1426, -2 )
@@ -261,7 +261,7 @@ position = Vector2( 5919, 1177 )
 collision_layer = 0
 
 [node name="enemytunaboss" parent="." instance=ExtResource( 19 )]
-position = Vector2( 19495, 2328 )
+position = Vector2( 19495, 2335 )
 scale = Vector2( 4, 4 )
 collision_layer = 0
 

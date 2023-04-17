@@ -5,10 +5,10 @@
 [ext_resource path="res://tunaattack.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 39.5, 65.5625 )
+extents = Vector2( 21.5, 65.0625 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 44.5, 68.5625 )
+extents = Vector2( 23, 66 )
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 254.5, 111 )
@@ -130,17 +130,17 @@ animations = [ {
 script = ExtResource( 2 )
 
 [node name="attacktimer" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 3.4
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.5, -0.56254 )
+position = Vector2( 3.5, -1.06252 )
 shape = SubResource( 1 )
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="hitboxshape" type="CollisionShape2D" parent="hitbox"]
-position = Vector2( -1, -2.56254 )
+position = Vector2( 4, -1 )
 shape = SubResource( 2 )
 
 [node name="movetimer" type="Timer" parent="."]
@@ -160,7 +160,11 @@ shape = SubResource( 28 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2.47468, 2.47468 )
 frames = SubResource( 26 )
-animation = "attack"
+animation = "move"
+
+[node name="switchtimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="timeout" from="attacktimer" to="." method="_on_attacktimer_timeout"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
@@ -168,3 +172,4 @@ animation = "attack"
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="timeout" from="switchtimer" to="." method="_on_switchtimer_timeout"]

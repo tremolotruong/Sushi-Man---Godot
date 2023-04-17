@@ -103,7 +103,7 @@ func dash():
 		dash_direction = Vector2(-1,0)
 	
 	
-	velocity = dash_direction.normalized() * 12000
+	velocity = dash_direction.normalized() * 16000
 	
 	can_dash = false
 	dashing = true

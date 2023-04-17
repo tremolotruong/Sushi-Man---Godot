@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bullet.png-03f5edc3dd5c6947c516da7bad7e9c9f.stex"
+path="res://.import/pixil-frame-0 (15).png-e9e554a26e6f620c6d96644bbe76454c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rocky Roads/Enemies/bullet.png"
-dest_files=[ "res://.import/bullet.png-03f5edc3dd5c6947c516da7bad7e9c9f.stex" ]
+source_file="res://pixil-frame-0 (15).png"
+dest_files=[ "res://.import/pixil-frame-0 (15).png-e9e554a26e6f620c6d96644bbe76454c.stex" ]
 
 [params]
 
