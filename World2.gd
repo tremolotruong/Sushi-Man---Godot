@@ -5,7 +5,6 @@ func _enter_tree():
 		$Player.global_position = Checkpoint.last_position
 		
 func _ready():
-	$Sun.play()
 	$enterportal.play()
 
 

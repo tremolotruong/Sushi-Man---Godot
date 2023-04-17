@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blowfish.png-fd31df4340c5fa5526f0d72a0ed59a0e.stex"
+path="res://.import/Glacial_Mountains-Cover.png-201b738e2272521035c7936721aa6002.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blowfish.png"
-dest_files=[ "res://.import/blowfish.png-fd31df4340c5fa5526f0d72a0ed59a0e.stex" ]
+source_file="res://Assets/Glacial-mountains-parallax-background_vnitti/Glacial_Mountains-Cover.png"
+dest_files=[ "res://.import/Glacial_Mountains-Cover.png-201b738e2272521035c7936721aa6002.stex" ]
 
 [params]
 

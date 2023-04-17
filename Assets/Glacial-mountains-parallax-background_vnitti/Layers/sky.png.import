@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/evil_chilli.png-c5204245ac4466069d39a2d91f83c065.stex"
+path="res://.import/sky.png-a81313205cba20b286a1ff51f2c82804.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/evil_chilli.png"
-dest_files=[ "res://.import/evil_chilli.png-c5204245ac4466069d39a2d91f83c065.stex" ]
+source_file="res://Assets/Glacial-mountains-parallax-background_vnitti/Layers/sky.png"
+dest_files=[ "res://.import/sky.png-a81313205cba20b286a1ff51f2c82804.stex" ]
 
 [params]
 

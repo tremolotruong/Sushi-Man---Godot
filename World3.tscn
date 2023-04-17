@@ -234,7 +234,7 @@ position = Vector2( -23, -32 )
 shape = SubResource( 47 )
 
 [node name="enterportal" type="AnimatedSprite" parent="."]
-position = Vector2( -1906, -905 )
+position = Vector2( -1912, -917 )
 scale = Vector2( 7.29688, 7.29688 )
 frames = SubResource( 46 )
 

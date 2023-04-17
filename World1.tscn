@@ -368,8 +368,8 @@ margin_top = -834.0
 margin_right = 551.0
 margin_bottom = -513.0
 custom_fonts/font = SubResource( 11 )
-text = "        move:	                 jump:             dash:          Melee:      
-    A  D     <   >          SPACE/W/^          SHIFT         l-mouse  "
+text = "        move:	                 jump:             dash:          melee:      
+    A  D     <   >           W     ^        SHIFT/SPACE     L-MOUSE"
 
 [node name="portal" parent="." instance=ExtResource( 1 )]
 position = Vector2( 12090, 1080 )

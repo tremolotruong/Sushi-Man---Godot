@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/clouds_mg_3.png-77738b27961bc3f03e6a46dddd46ccc4.stex"
+path="res://.import/clouds_mg_3.png-f1cd5d4e5bbdb4712142b8ffa571cf10.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png"
-dest_files=[ "res://.import/clouds_mg_3.png-77738b27961bc3f03e6a46dddd46ccc4.stex" ]
+source_file="res://Assets/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png"
+dest_files=[ "res://.import/clouds_mg_3.png-f1cd5d4e5bbdb4712142b8ffa571cf10.stex" ]
 
 [params]
 

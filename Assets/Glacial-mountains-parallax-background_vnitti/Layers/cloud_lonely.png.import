@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/evil_tomato.png-46aa2f1e00423b6b75f0a33563a9239d.stex"
+path="res://.import/cloud_lonely.png-2ef7d23c14bebd0114cc4f787a0b08fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/evil_tomato.png"
-dest_files=[ "res://.import/evil_tomato.png-46aa2f1e00423b6b75f0a33563a9239d.stex" ]
+source_file="res://Assets/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png"
+dest_files=[ "res://.import/cloud_lonely.png-2ef7d23c14bebd0114cc4f787a0b08fa.stex" ]
 
 [params]
 

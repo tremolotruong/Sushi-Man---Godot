@@ -6,6 +6,7 @@ var movespeed = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	movement.x = -movespeed
+	$AnimatedSprite.flip_h = true
 
 func _physics_process(_delta):
 	$AnimatedSprite.play()
@@ -13,16 +14,14 @@ func _physics_process(_delta):
 		movement.y += movespeed
 	if is_on_wall():
 		if direction <=0:
-			$AnimatedSprite.flip_h = true
-		else:
 			$AnimatedSprite.flip_h = false
+		else:
+			$AnimatedSprite.flip_h = true
 		movement.x *= -1
 		direction *= -1
 		
 #	
 	move_and_slide(movement, Vector2.UP)
-	
-	
 	
 	
 
@@ -34,7 +33,7 @@ func _on_Area2D_body_entered(body):
 		if health == 1:
 			if direction <= 0:
 				movement.x *= -2.5
-				$AnimatedSprite.flip_h = true
+				$AnimatedSprite.flip_h = false
 				$AnimatedSprite.speed_scale = 2
 				direction *= -1
 			else:
@@ -52,7 +51,7 @@ func _on_Area2D_area_entered(area):
 		if health == 1:
 			if direction <= 0:
 				movement.x *= -2.5
-				$AnimatedSprite.flip_h = true
+				$AnimatedSprite.flip_h = false
 				$AnimatedSprite.speed_scale = 2
 				direction *= -1
 			else:
