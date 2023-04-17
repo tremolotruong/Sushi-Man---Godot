@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_snow.png-0876a72b35df3ee96b4de90390a423f7.stex"
+path="res://.import/background_glacial_mountains.png-54e87292cebec589ec8d75a81121c31a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rocky Roads/Tilesets/tileset_snow.png"
-dest_files=[ "res://.import/tileset_snow.png-0876a72b35df3ee96b4de90390a423f7.stex" ]
+source_file="res://Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png"
+dest_files=[ "res://.import/background_glacial_mountains.png-54e87292cebec589ec8d75a81121c31a.stex" ]
 
 [params]
 

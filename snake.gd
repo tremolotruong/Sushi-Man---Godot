@@ -13,9 +13,9 @@ func _physics_process(_delta):
 		movement.y += movespeed
 	if is_on_wall():
 		if direction <=0:
-			$AnimatedSprite.flip_h = false
-		else:
 			$AnimatedSprite.flip_h = true
+		else:
+			$AnimatedSprite.flip_h = false
 		movement.x *= -1
 		direction *= -1
 		
@@ -34,7 +34,7 @@ func _on_Area2D_body_entered(body):
 		if health == 2:
 			if direction <= 0:
 				movement.x *= -2.5
-				$AnimatedSprite.flip_h = false
+				$AnimatedSprite.flip_h = true
 				$AnimatedSprite.speed_scale = 2
 				direction *= -1
 			else:
@@ -52,7 +52,7 @@ func _on_Area2D_area_entered(area):
 		if health == 2:
 			if direction <= 0:
 				movement.x *= -2.5
-				$AnimatedSprite.flip_h = false
+				$AnimatedSprite.flip_h = true
 				$AnimatedSprite.speed_scale = 2
 				direction *= -1
 			else:

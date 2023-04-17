@@ -10,8 +10,9 @@ config_version=4
 
 [application]
 
-config/name="Sushi Man Pre-Beta 2"
+config/name="Sushi Man Sprint 3"
 run/main_scene="res://World1.tscn"
+config/icon="res://icon.png"
 
 [autoload]
 

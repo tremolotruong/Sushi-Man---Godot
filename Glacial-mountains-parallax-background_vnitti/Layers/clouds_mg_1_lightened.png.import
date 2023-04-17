@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_snow.png-0876a72b35df3ee96b4de90390a423f7.stex"
+path="res://.import/clouds_mg_1_lightened.png-9ec682d7e019943561cb597913a1f66e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rocky Roads/Tilesets/tileset_snow.png"
-dest_files=[ "res://.import/tileset_snow.png-0876a72b35df3ee96b4de90390a423f7.stex" ]
+source_file="res://Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1_lightened.png"
+dest_files=[ "res://.import/clouds_mg_1_lightened.png-9ec682d7e019943561cb597913a1f66e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

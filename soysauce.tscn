@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://pixil-frame-0 (16).png" type="Texture" id=1]
+[ext_resource path="res://pixil-frame-0 (20).png" type="Texture" id=2]
+[ext_resource path="res://pixil-frame-0 (15).png" type="Texture" id=3]
+[ext_resource path="res://soysauce.gd" type="Script" id=4]
+[ext_resource path="res://soygun.gd" type="Script" id=5]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 48, 141 )
+
+[node name="soyboss" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 6, 6 )
+frames = SubResource( 3 )
+
+[node name="shoot_timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="weapon" type="Sprite" parent="."]
+position = Vector2( -45, 42 )
+rotation = -0.287979
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Bullet" parent="." instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -6, 15 )
+shape = SubResource( 4 )
+
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]

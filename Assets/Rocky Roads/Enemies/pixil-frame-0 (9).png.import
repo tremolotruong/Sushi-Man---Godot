@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_snow.png-0876a72b35df3ee96b4de90390a423f7.stex"
+path="res://.import/pixil-frame-0 (9).png-5052c42d89af21c66e2592311b187eae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rocky Roads/Tilesets/tileset_snow.png"
-dest_files=[ "res://.import/tileset_snow.png-0876a72b35df3ee96b4de90390a423f7.stex" ]
+source_file="res://Assets/Rocky Roads/Enemies/pixil-frame-0 (9).png"
+dest_files=[ "res://.import/pixil-frame-0 (9).png-5052c42d89af21c66e2592311b187eae.stex" ]
 
 [params]
 
