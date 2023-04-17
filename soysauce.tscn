@@ -44,10 +44,16 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 script = ExtResource( 5 )
 
-[node name="Bullet" parent="." instance=ExtResource( 6 )]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -6, 15 )
+position = Vector2( -5.33333, 14.6667 )
 shape = SubResource( 4 )
+
+[node name="Bullet" parent="." instance=ExtResource( 6 )]
+position = Vector2( -150.667, -26.6667 )
+
+[node name="bulletlocation" type="Node2D" parent="."]
+position = Vector2( -522, 120 )
+rotation = -0.287979
+scale = Vector2( 4, 4 )
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]

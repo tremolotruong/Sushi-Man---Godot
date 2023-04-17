@@ -21,6 +21,7 @@ func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		if level == 1:
 			get_tree().change_scene("res://World2.tscn")
-			Checkpoint.last_position = Vector2(-1918,-811)
+			Checkpoint.last_position = Vector2(137,28)
 		elif level == 2:
-			get_tree().change_scene("res://World1.tscn")
+			get_tree().change_scene("res://World3.tscn")
+			Checkpoint.last_position = Vector2(-1918, -811)

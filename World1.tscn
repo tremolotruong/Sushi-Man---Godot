@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://portal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://checkpoint.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World1.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Purple Portal Sprite Sheet.png" type="Texture" id=13]
-[ext_resource path="res://soysauce.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -398,9 +397,6 @@ scale = Vector2( 6, 6 )
 [node name="checkpoint1" parent="." instance=ExtResource( 11 )]
 position = Vector2( -248, -391 )
 scale = Vector2( 6, 6 )
-
-[node name="soyboss" parent="." instance=ExtResource( 14 )]
-position = Vector2( -1695, -792 )
 
 [connection signal="animation_finished" from="exitportal" to="." method="_on_exitportal_animation_finished"]
 [connection signal="area_entered" from="turtle/dialogue2" to="turtle" method="_on_dialogue2_area_entered"]

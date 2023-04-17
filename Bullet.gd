@@ -5,6 +5,7 @@ var Player
 var speed = 8
 var shooting = false
 var just_shot = false
+var bullet_pos = Vector2()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -20,12 +21,13 @@ func _ready():
 	
 func _process(_delta):
 	if just_shot:
-		self.position = get_parent().get_node("weapon").position
+		self.position = get_parent().get_node("bulletlocation").position
 		self.rotation = get_parent().get_node("weapon").rotation
 		just_shot = false
 		target_pos = Player.get_position()
+		bullet_pos = self.position
 	if shooting:
-		motion = position.direction_to(target_pos) * speed
+		motion = bullet_pos.direction_to(target_pos) * speed
 		move_and_collide(motion)
 
 
