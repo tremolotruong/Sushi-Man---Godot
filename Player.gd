@@ -119,9 +119,13 @@ func kill():
 	get_tree().reload_current_scene()
 	
 func knockback(name):
-	var enemy_direction = get_parent().get_node("{enemy}".format({"enemy": name})).direction
-	knockback_direction = enemy_direction
-	knockback = true
+	if name == "enemybullet":
+		knockback_direction = -1
+		knockback = true
+	else:
+		var enemy_direction = get_parent().get_node("{enemy}".format({"enemy": name})).direction
+		knockback_direction = enemy_direction
+		knockback = true
 	
 	
 func damage():

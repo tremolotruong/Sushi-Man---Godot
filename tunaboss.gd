@@ -4,9 +4,9 @@ var action = "none"
 var direction = -1
 var speed = 3
 var Player
-var health = 20
+var health = 15
 var curr_frame = 0
-var hitboxlst = [[-88, -42], [-93, -47], [-100, -52], [-110, -57], [-115, -62], [-123, -64], [-135, -72], [-143, -74], [-155, -79], [-175, -84], [-187, -87], [-207, -91], [-222, -89], [-239, -87], [-264, -79], [-286, -72], [-311, -64], [-336, -52], [-356, -37], [-378, -17], [-400, 8], [-425, 33], [-435, 50]]
+var hitboxlst = [[-96, 20], [-103, 21], [-126, -31], [-84, -154], [97, -151], [200, 34], [190, -4], [179, -16], [154, -118], [47, -166], [-105, -147], [-239, -88], [-286, -72], [-336, -52], [-378, -19], [-420, 24], [-443, 47], [-443, 47], [-443, 47], [-443, 47], [-443, 47], [-443, 47], [-443, 47], [-431, 47], [-414, 47], [-395, 47], [-380, 48], [-362, 48], [-341, 48], [-319, 47], [-305, 48], [-284, 48], [-259, 48], [-240, 48], [-222, 48], [-201, 48], [-176, 47], [-145, 47], [-124, 48], [-109, 48], [-98, 39], [-78, 36]]
 var attacking = false
 var invincible = false
 var last_pos = "left"
@@ -75,13 +75,14 @@ func _process(delta):
 		move_and_collide(motion)
 
 func attack():
+	invincible = true
 	$AnimatedSprite.play("attack")
 	if direction == -1:
-		$AnimatedSprite.position.x = -312
-		$AnimatedSprite.position.y = -32
+		$AnimatedSprite.position.x = -133
+		$AnimatedSprite.position.y = -78.5
 	else:
-		$AnimatedSprite.position.x = 312
-		$AnimatedSprite.position.y = -32
+		$AnimatedSprite.position.x = 133
+		$AnimatedSprite.position.y = -78.5
 	$anchorhitbox.disabled = false
 	
 
@@ -104,6 +105,9 @@ func _on_hitbox_area_entered(area):
 		Player.get_node("gamecamera").get_node("UI").get_node("bosshealthbar").value = health
 		if health <= 0:
 			Player.get_node("gamecamera").get_node("UI").get_node("bosshealthbar").hide()
+			self.get_parent().get_node("exitportal").show()
+			self.get_parent().get_node("exitportal").play()
+			self.get_parent().get_node("exitportal").finished = true
 			queue_free()
 
 func _on_AnimatedSprite_frame_changed():

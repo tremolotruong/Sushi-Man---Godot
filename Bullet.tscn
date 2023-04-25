@@ -12,6 +12,7 @@ radius = 5.25
 height = 4.0
 
 [node name="Bullet" type="KinematicBody2D"]
+rotation = -0.748746
 scale = Vector2( 4, 4 )
 script = ExtResource( 1 )
 
